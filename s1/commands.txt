@@ -1,0 +1,8 @@
+table_add forwarding set_egress_port 00:00:0a:00:00:01 => 1
+table_add forwarding set_egress_port 00:00:0a:00:00:02 => 2
+table_add forwarding set_egress_port 00:00:0a:00:00:03 => 3
+table_add flow_marking mark_flow 10.0.0.1 10.0.0.3 5000 5000 17 => 0
+table_add flow_marking mark_flow 10.0.0.2 10.0.0.3 5000 5000 17 => 1
+meter_set_rates vq_meter 0 0.001:200 0.001:400
+meter_set_rates vq_meter 1 0.001:200 0.001:400
+EOF
